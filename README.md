@@ -1,2 +1,2 @@
-# test_codes
-For testing, tries, examples, debugging and what nots
+# test_codes_python
+For python testing, tries, examples, debugging and what nots
