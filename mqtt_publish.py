@@ -3,6 +3,5 @@
 
 import paho.mqtt.publish as publish
 
-publish.single("esp-com", "Hello", hostname="192.168.0.114")
-publish.single("esp-com", "World!", hostname="192.168.0.114")
+publish.single('topic1', 'Hello', hostname='10.42.0.137')
 print("Done")
