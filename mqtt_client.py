@@ -4,33 +4,30 @@
  
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
+
+host = '10.42.0.137'
+topic = 'topic1'
  
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
+    print('Connected with result code '+str(rc))
  
     # Subscribing in on_connect() - if we lose the connection and
     # reconnect then subscriptions will be renewed.
-    client.subscribe("esp-com")
+    client.subscribe(topic)
  
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     message = str(msg.payload)
     message = message[2:-1]
     print(message)
-
-    if message == "Hello":
-        DoSomething()
-
-def DoSomething():
-    publish.single("esp-com", "message Hello has been received", hostname="192.168.0.114")
  
 # Create an MQTT client and attach our routines to it.
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
  
-client.connect("192.168.0.114", 1883, 60)
+client.connect(host, 1883, 60)
  
 # Process network traffic and dispatch callbacks. This will also handle
 # reconnecting. Check the documentation at
