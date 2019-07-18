@@ -12,6 +12,12 @@ import PeopleClass
 ethan = PeopleClass.Person('ethan')
 ethan.SayName()
 
+import PeopleClass as People
+# import peopleClass and assign it a different name
+
+ethan = People.Person('ethan')
+ethan.SayName()
+
 from PeopleClass import Person
 # imports Person class from PeopleClass
 
